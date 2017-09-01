@@ -4,7 +4,7 @@ A Pen created at CodePen.io. You can find this one at https://codepen.io/ali-far
 
 
 
-# Changelog - 
+# Changelog  
 All notable changes to this project will be documented in this file.
 
 
@@ -13,5 +13,5 @@ All notable changes to this project will be documented in this file.
 
 New Release. Tested on CodePen, libraries on CDNJS.
 
-#v0.1
+# v0.1
 Tested Locally.
