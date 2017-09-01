@@ -1,4 +1,5 @@
 var ww = $("body").width();
+console.log(ww);
 if (ww < 767) {
   console.log("Chota skreen hai babu bhaiyya");
   $("#intro-box").html('<h1 id="hWorld"> Hello World! </h1><div class="row"><div class="col-xs-7 col-md-8"><h2 id="meName">M. Ali<br>Farooqi</h2></div><div class="col-xs-5 col-md-4"><img src="http://drive.google.com/uc?export=view&id=0BxSjn7LtwFMhSkEwakVzb0tqNFk" alt="Ali" class="img-responsive" id="mePhoto"></div></div><p style="text-align: left;">I am a second-year Computer Science student, studying on full scholarship at The University of Hong KOng. I am a self-taught front-end web developer certified by <em><a href="https://www.freecodecamp.org/alifarooqi/front-end-certification" target="_blank" style="color:#bbb">Free Code Camp</a></em>.</p>');
