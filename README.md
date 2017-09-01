@@ -14,4 +14,5 @@ All notable changes to this project will be documented in this file.
 New Release. Tested on CodePen, libraries on CDNJS.
 
 # v0.1
-Tested Locally.
+Tested with all files stored locally.
+~ Bugs:   1. Opening the menu switches to home page. (Both on GitHub and Codepen).
