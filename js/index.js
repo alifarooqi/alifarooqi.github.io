@@ -1,4 +1,4 @@
-var ww = $(window).width();
+var ww = $(document).width();
 console.log(ww);
 if (ww < 767) {
   console.log("Chota skreen hai babu bhaiyya");
