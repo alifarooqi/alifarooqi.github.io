@@ -228,23 +228,12 @@ nav li a {
 	        transition: background .5s;
 }
 
-nav li:nth-child(odd) a,
-body.fp-viewing-secondSection-1 #menu li:nth-child(5) a {
+nav li a {
 	background: rgba(40,40,40,.9);
 }
 
-nav li:nth-child(even) a {
-	background: rgba(70,70,70,.9);
-}
-
-nav li:nth-child(odd) a:hover {
+nav li a:hover {
 	background: rgba(47, 39, 58, 0.9);
-  color: white;
-  text-decoration: none;
-}
-
-nav li:nth-child(even) a:hover {
-	background: #c53c52;
   color: white;
   text-decoration: none;
 }
