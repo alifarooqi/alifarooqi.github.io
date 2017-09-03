@@ -13,6 +13,7 @@ var $nav = $('nav');
 // toggle menu 
 $header_top.find('a').on('click', function() {
   $(this).parent().toggleClass('open-menu');
+  return false;
 });
 
 
