@@ -195,8 +195,8 @@ nav {
 	position: fixed;
 	top: 70px;
 	width: 100%;
-  -webkit-transition: all 3s;
-          transition: all 3s;
+  -webkit-transition: all 1s;
+          transition: all 1s;
 }
 
 .open-menu ~ nav {
