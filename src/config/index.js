@@ -24,13 +24,13 @@ import React from 'react';
 import { Icons } from './icons';
 
 // CUSTOM ICONS
-import SettingsInputAntennaIcon from '@material-ui/icons/SettingsInputAntenna';
-import WbIridescentIcon from '@material-ui/icons/WbIridescent';
-import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
-import ComputerIcon from '@material-ui/icons/Computer';
-import InfoIcon from '@material-ui/icons/Info';
-import RateReviewIcon from '@material-ui/icons/RateReview';
-import Description from '@material-ui/icons/Description';
+import SettingsInputAntennaIcon from '@mui/icons-material/SettingsInputAntenna';
+import WbIridescentIcon from '@mui/icons-material/WbIridescent';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import ComputerIcon from '@mui/icons-material/Computer';
+import InfoIcon from '@mui/icons-material/Info';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import Description from '@mui/icons-material/Description';
 
 // CUSTOM COMPONENTS
 import CircleButton from '../components/CircleButton/CircleButton';

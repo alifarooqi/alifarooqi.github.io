@@ -1,16 +1,16 @@
 import React from 'react';
 
 // ICONS
-import SvgIcon from '@material-ui/core/SvgIcon';
-import ComputerIcon from '@material-ui/icons/Computer';
-import InfoIcon from '@material-ui/icons/Info';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import MapIcon from '@material-ui/icons/Map';
-import CodeIcon from '@material-ui/icons/Code';
-import LinkIcon from '@material-ui/icons/Link';
-import WebIcon from '@material-ui/icons/Web';
-import MailIcon from '@material-ui/icons/Mail';
-import Twitter from '@material-ui/icons/Twitter';
+import SvgIcon from '@mui/material/SvgIcon';
+import ComputerIcon from '@mui/icons-material/Computer';
+import InfoIcon from '@mui/icons-material/Info';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import MapIcon from '@mui/icons-material/Map';
+import CodeIcon from '@mui/icons-material/Code';
+import LinkIcon from '@mui/icons-material/Link';
+import WebIcon from '@mui/icons-material/Web';
+import MailIcon from '@mui/icons-material/Mail';
+import Twitter from '@mui/icons-material/Twitter';
 import { ReactComponent as FacebookIcon } from '../assets/icons/facebook.svg';
 import { ReactComponent as GitHubIcon } from '../assets/icons/github.svg';
 import { ReactComponent as LinkedInIcon } from '../assets/icons/linkedin.svg';

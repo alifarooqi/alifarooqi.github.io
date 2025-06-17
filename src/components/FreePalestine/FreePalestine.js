@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ChevronRight, Description, PlayArrow } from '@material-ui/icons';
+import { ChevronRight, Description, PlayArrow } from '@mui/icons-material';
 import CircleButton from '../CircleButton/CircleButton';
 import { Icons } from '../../config/icons';
 import './FreePalestine.scss';

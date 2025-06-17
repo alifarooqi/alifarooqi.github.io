@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MenuToggle from './MenuToggle/MenuToggle';
 import MenuItem from './MenuItem/MenuItem';
-import NightsStayIcon from '@material-ui/icons/NightsStay';
-import ComputerIcon from '@material-ui/icons/Computer';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import NightsStayIcon from '@mui/icons-material/NightsStay';
+import ComputerIcon from '@mui/icons-material/Computer';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import './Menu.scss';
 
 import { CustomSectionsConfig } from '../../config';

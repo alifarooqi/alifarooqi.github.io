@@ -1,9 +1,9 @@
 import React from 'react';
-import InfoIcon from '@material-ui/icons/Info';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import CodeIcon from '@material-ui/icons/Code';
-import WebIcon from '@material-ui/icons/Web';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import InfoIcon from '@mui/icons-material/Info';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import CodeIcon from '@mui/icons-material/Code';
+import WebIcon from '@mui/icons-material/Web';
+import SvgIcon from '@mui/material/SvgIcon';
 import Section from '../Section/Section';
 import { ReactComponent as CppIcon } from '../../assets/icons/cplusplus-plain.svg';
 import { ReactComponent as JavaIcon } from '../../assets/icons/java-plain-wordmark.svg';
