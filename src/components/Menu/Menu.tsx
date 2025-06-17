@@ -67,7 +67,7 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
     ];
 
     const sectionItems: Omit<MenuItemType, 'key'>[] = CustomSectionsConfig
-      .filter(section => !section.notInMenu)
+      .filter(section => !section.notInMenu && React.isValidElement(section.headerIcon))
       .map(section => ({
         icon: React.cloneElement(section.headerIcon, { classes: { root: 'menu-item-icon' } }),
         tooltip: section.name,

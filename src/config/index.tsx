@@ -79,10 +79,10 @@ export interface ProjectsConfigType {
 
 export interface CustomSection {
   name: string;
-  headerIcon: ReactNode;
+  headerIcon: React.ReactElement;
   extraClass?: string;
   notInMenu?: boolean;
-  content: ReactNode;
+  content: React.ReactNode;
 }
 
 // --- Configs ---

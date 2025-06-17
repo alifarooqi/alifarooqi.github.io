@@ -8,7 +8,7 @@ import FreePalestine from './components/FreePalestine/FreePalestine';
 import { CustomSectionsConfig, CommonConfig } from './config';
 
 // Type for section refs
-export type SectionRefs = Record<string, RefObject<HTMLElement>>;
+export type SectionRefs = Record<string, React.RefObject<HTMLDivElement>>;
 
 const App: React.FC = () => {
   const sectionRefs = useRef<SectionRefs>({});
@@ -18,7 +18,7 @@ const App: React.FC = () => {
     CustomSectionsConfig.forEach((customSection) => {
       const name = customSection.name as string;
       if (!sectionRefs.current[name]) {
-        sectionRefs.current[name] = React.createRef<HTMLElement>();
+        sectionRefs.current[name] = React.createRef<HTMLDivElement>() as React.RefObject<HTMLDivElement>;
       }
     });
     // eslint-disable-next-line
@@ -31,7 +31,7 @@ const App: React.FC = () => {
       if (theme === 'dark') {
         document.body.classList.add('dark-mode');
       }
-    } else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) {
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       localStorage.setItem('theme', 'dark');
       document.body.classList.add('dark-mode');
     }

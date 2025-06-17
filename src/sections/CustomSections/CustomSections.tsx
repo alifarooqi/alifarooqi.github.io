@@ -4,7 +4,7 @@ import { CustomSectionsConfig } from '../../config';
 import './CustomSections.scss';
 
 // Type for section refs
-export type SectionRefs = Record<string, RefObject<HTMLElement>>;
+export type SectionRefs = Record<string, React.RefObject<HTMLDivElement>>;
 
 interface CustomSectionsProps {
   sectionRefs: SectionRefs;
