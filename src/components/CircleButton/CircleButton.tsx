@@ -1,32 +1,59 @@
-import React from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import { Tooltip } from '@mui/material';
 import './CircleButton.scss';
 
-class CircleButton extends React.Component {
-    render() {
-        const ButtonTag = this.props.link ? 'a' : 'button';
-        return (
-            <Tooltip title={this.props.tooltip ?? ''}
-                placement={this.props.tooltipPlacement}>
-                <ButtonTag href={this.props.link}
-                    target={this.props.target}
-                    onClick={this.props.onClick}
-                    className={!this.props.className ? 'circle-button' : ('circle-button ' + this.props.className)}
-                    style={
-                        Object.assign(
-                            { width: this.props.size + 'rem', height: this.props.size + 'rem' },
-                            this.props.style
-                        )
-                    }>
-                    {this.props.children}
-                </ButtonTag>
-            </Tooltip>
-        );
-    }
+interface CircleButtonProps {
+  link?: string;
+  target?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  className?: string;
+  style?: CSSProperties;
+  size?: number;
+  tooltip?: string;
+  tooltipPlacement?: 'bottom' | 'left' | 'right' | 'top';
+  children?: ReactNode;
 }
 
-CircleButton.defaultProps = {
-    size: 1
+const CircleButton: React.FC<CircleButtonProps> = ({
+  link,
+  target,
+  onClick,
+  className,
+  style,
+  size = 1,
+  tooltip = '',
+  tooltipPlacement,
+  children,
+}) => {
+  const ButtonTag = link ? 'a' : 'button';
+  const combinedClassName = className ? `circle-button ${className}` : 'circle-button';
+  const buttonStyle = { width: `${size}rem`, height: `${size}rem`, ...style };
+
+  return (
+    <Tooltip title={tooltip} placement={tooltipPlacement}>
+      {link ? (
+        <a
+          href={link}
+          target={target}
+          onClick={onClick}
+          className={combinedClassName}
+          style={buttonStyle}
+          rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+        >
+          {children}
+        </a>
+      ) : (
+        <button
+          type="button"
+          onClick={onClick}
+          className={combinedClassName}
+          style={buttonStyle}
+        >
+          {children}
+        </button>
+      )}
+    </Tooltip>
+  );
 };
 
 export default CircleButton;

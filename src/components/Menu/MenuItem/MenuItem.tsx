@@ -2,33 +2,47 @@ import React from 'react';
 import CircleButton from '../../CircleButton/CircleButton';
 import './MenuItem.scss';
 
-class MenuItem extends React.Component {
-
-    activeTransformStyle = (angle1, angle2, isMobile) => `
-        translateY(${!isMobile ? "-50%" : "0"})
-        rotate(${angle1}deg)
-        translate(${isMobile ? 7 : 6}rem)
-        rotate(${angle2}deg)
-    `;
-
-    render() {
-        return (
-            <CircleButton className="menu-item"
-                tooltip={this.props.tooltip}
-                onClick={this.props.action}
-                tooltipPlacement={this.props.tooltipPlacement}
-                size={3.5}
-                style={this.props.menuActive ? {
-                    transform: this.activeTransformStyle(
-                        this.props.rotationAngle,
-                        -this.props.rotationAngle,
-                        this.props.isMobile
-                    )
-                } : {}}>
-                {this.props.icon}
-            </CircleButton>
-        );
-    }
+interface MenuItemProps {
+  icon: React.ReactNode;
+  tooltip: string;
+  action: () => void;
+  tooltipPlacement: string;
+  menuActive: boolean;
+  isMobile: boolean;
+  rotationAngle: number;
 }
+
+const activeTransformStyle = (angle1: number, angle2: number, isMobile: boolean) => `
+  translateY(${!isMobile ? "-50%" : "0"})
+  rotate(${angle1}deg)
+  translate(${isMobile ? 7 : 6}rem)
+  rotate(${angle2}deg)
+`;
+
+const MenuItem: React.FC<MenuItemProps> = ({
+  icon,
+  tooltip,
+  action,
+  tooltipPlacement,
+  menuActive,
+  isMobile,
+  rotationAngle
+}) => (
+  <CircleButton 
+    className="menu-item"
+    tooltip={tooltip}
+    onClick={action}
+    tooltipPlacement={tooltipPlacement}
+    size={3.5}
+    style={menuActive ? {
+      transform: activeTransformStyle(
+        rotationAngle,
+        -rotationAngle,
+        isMobile
+      )
+    } : {}}>
+    {icon}
+  </CircleButton>
+);
 
 export default MenuItem;

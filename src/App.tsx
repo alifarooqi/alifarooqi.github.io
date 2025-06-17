@@ -1,48 +1,52 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Menu from './components/Menu/Menu';
 import TopSection from './sections/TopSection/TopSection';
 import CustomSections from './sections/CustomSections/CustomSections';
 import Footer from './sections/Footer/Footer';
 import FreePalestine from './components/FreePalestine/FreePalestine';
 
-import { CustomSectionsConfig, CommonConfig } from './config'
+import { CustomSectionsConfig, CommonConfig } from './config';
 
-class App extends React.Component {
+type SectionRefs = {
+  [key: string]: React.RefObject<HTMLElement>;
+};
 
-    constructor(props) {
-        super(props);
-        const theme = localStorage.getItem('theme');
-        if (theme) {
-            if (theme === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-        } else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) {
-            localStorage.setItem('theme', 'dark');
-            document.body.classList.add('dark-mode');
-        }
+const App: React.FC = () => {
+  const sectionRefs = useRef<SectionRefs>({});
 
-        this.sectionRefs = {};
+  // Initialize refs for custom sections only once
+  useEffect(() => {
+    CustomSectionsConfig.forEach((customSection) => {
+      if (!sectionRefs.current[customSection.name]) {
+        sectionRefs.current[customSection.name] = React.createRef<HTMLElement>();
+      }
+    });
+    // eslint-disable-next-line
+  }, []);
 
-        // Creating refs for sections for smooth scrolling
-        CustomSectionsConfig.forEach((customSection) => {
-            this.sectionRefs[customSection.name] = React.createRef();
-        });
-
-        // Setting document title
-        document.title = CommonConfig.name + ' - ' + CommonConfig.tagline;
+  // Theme and document title logic
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    } else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.setItem('theme', 'dark');
+      document.body.classList.add('dark-mode');
     }
+    document.title = CommonConfig.name + ' - ' + CommonConfig.tagline;
+  }, []);
 
-    render() {
-        return (
-            <>
-                {CommonConfig.addFreePalestine && <FreePalestine />}
-                <Menu sectionRefs={this.sectionRefs} />
-                <TopSection />
-                <CustomSections sectionRefs={this.sectionRefs} />
-                <Footer />
-            </>
-        );
-    }
-}
+  return (
+    <>
+      {CommonConfig.addFreePalestine && <FreePalestine />}
+      <Menu sectionRefs={sectionRefs.current} />
+      <TopSection />
+      <CustomSections sectionRefs={sectionRefs.current} />
+      <Footer />
+    </>
+  );
+};
 
 export default App;

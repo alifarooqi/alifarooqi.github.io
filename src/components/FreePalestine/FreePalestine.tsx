@@ -1,58 +1,63 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { ChevronRight, Description, PlayArrow } from '@mui/icons-material';
 import CircleButton from '../CircleButton/CircleButton';
 import { Icons } from '../../config/icons';
 import './FreePalestine.scss';
 
-class FreePalestine extends Component {
-    constructor() {
-        super();
-        this.state = { isHiding: false, hidden: false };
-        document.body.style.setProperty('overflow', 'hidden');
-    }
+const FreePalestine: React.FC = () => {
+  const [isHiding, setIsHiding] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
-    render() {
-        const wrapperClassNames = [
-            'free-palestine',
-            this.state.isHiding && 'is-hiding'
-        ].filter(className => className).join(' ');;
+  useEffect(() => {
+    document.body.style.setProperty('overflow', 'hidden');
+    return () => {
+      document.body.style.removeProperty('overflow');
+    };
+  }, []);
 
-        if (this.state.hidden) {
-            return null;
-        }
+  const handleClose = useCallback(() => {
+    document.body.style.removeProperty('overflow');
+    setIsHiding(true);
+    setTimeout(() => {
+      setHidden(true);
+      setIsHiding(false);
+    }, 1000);
+  }, []);
 
-        return (
-            <div className={wrapperClassNames}>
-                <div className="free-palestine-content">
-                    <h1><span>Free</span><br />Palestine</h1>
-                    <CircleButton link="https://twitter.com/hashtag/FreePalestine" tooltip="#FreePalestine on Twitter">
-                        {Icons['twitter']}
-                    </CircleButton>
-                    <CircleButton link="http://facebook.com/hashtag/FreePalestine" tooltip="#FreePalestine on Facebook">
-                        {Icons['facebook']}
-                    </CircleButton>
-                    <CircleButton link="https://www.google.com/search?q=palestine&amp;tbm=nws" tooltip="Latest news">
-                        <Description />
-                    </CircleButton>
-                    <CircleButton link="https://youtu.be/_mBBGp7Pwnw=nws" tooltip="Watch video to learn more">
-                        <PlayArrow />
-                    </CircleButton>
-                </div>
-                <CircleButton
-                    className="to-website"
-                    onClick={() => {
-                        document.body.style.removeProperty('overflow');
-                        this.setState({ isHiding: true });
-                        setTimeout(() => this.setState({ hidden: true, isHiding: false }), 1000);
-                    }}
-                    size={4}
-                    tooltip="Go to website"
-                >
-                    <ChevronRight />
-                </CircleButton>
-            </div>
-        )
-    }
-}
+  if (hidden) return null;
+
+  const wrapperClassNames = [
+    'free-palestine',
+    isHiding && 'is-hiding'
+  ].filter(Boolean).join(' ');
+
+  return (
+    <div className={wrapperClassNames}>
+      <div className="free-palestine-content">
+        <h1><span>Free</span><br />Palestine</h1>
+        <CircleButton link="https://twitter.com/hashtag/FreePalestine" tooltip="#FreePalestine on Twitter">
+          {Icons['twitter']}
+        </CircleButton>
+        <CircleButton link="http://facebook.com/hashtag/FreePalestine" tooltip="#FreePalestine on Facebook">
+          {Icons['facebook']}
+        </CircleButton>
+        <CircleButton link="https://www.google.com/search?q=palestine&amp;tbm=nws" tooltip="Latest news">
+          <Description />
+        </CircleButton>
+        <CircleButton link="https://youtu.be/_mBBGp7Pwnw=nws" tooltip="Watch video to learn more">
+          <PlayArrow />
+        </CircleButton>
+      </div>
+      <CircleButton
+        className="to-website"
+        onClick={handleClose}
+        size={4}
+        tooltip="Go to website"
+      >
+        <ChevronRight />
+      </CircleButton>
+    </div>
+  );
+};
 
 export default FreePalestine;
