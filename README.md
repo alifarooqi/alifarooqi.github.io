@@ -1,4 +1,4 @@
-# krit
+# Ali Portfolio (extended from [krit](https://github.com/9inpachi/krit))
 
 An easily configurable personal website template in React with great visuals.
 
