@@ -4,32 +4,36 @@ import './Footer.scss';
 
 import { CommonConfig, Icons } from '../../config';
 
-class Footer extends React.Component {
-    render() {
-        return (
-            <div className="footer">
-                <p>
-                    Copyright &copy; {new Date().getFullYear()} All rights reserved
-                </p>
-                <p>
-                    {CommonConfig.social.map((socialDetails, index) => {
-                        return (
-                            <CircleButton key={'footer-social-' + index} tooltip={socialDetails.name} tooltipPlacement="top"
-                                link={socialDetails.link} target="_blank">
-                                {/* If the social platform icon is given then use that else pick from default icons */}
-                                {socialDetails.icon
-                                    ? socialDetails.icon : Icons[socialDetails.name.toLowerCase()]}
-
-                            </CircleButton>
-                        );
-                    })}
-                </p>
-                <p>
-                    <a href="https://github.com/9inpachi/krit" target="_blank" rel="noopener noreferrer">get the code {'</>'}</a>
-                </p>
-            </div>
-        );
-    }
-}
+const Footer: React.FC = () => (
+  <div className="footer">
+    <p>
+      Copyright &copy; {new Date().getFullYear()} All rights reserved
+    </p>
+    <p>
+      {CommonConfig.social.map((socialDetails, index) => (
+        <CircleButton
+          key={`footer-social-${index}`}
+          tooltip={socialDetails.name}
+          tooltipPlacement="top"
+          link={socialDetails.link}
+          target="_blank"
+        >
+          {socialDetails.icon
+            ? socialDetails.icon
+            : Icons[socialDetails.name.toLowerCase() as keyof typeof Icons]}
+        </CircleButton>
+      ))}
+    </p>
+    <p>
+      <a
+        href="https://github.com/9inpachi/krit"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        get the code {'</>'}
+      </a>
+    </p>
+  </div>
+);
 
 export default Footer;

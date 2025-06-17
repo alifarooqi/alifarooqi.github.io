@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, RefObject } from 'react';
 import Menu from './components/Menu/Menu';
 import TopSection from './sections/TopSection/TopSection';
 import CustomSections from './sections/CustomSections/CustomSections';
@@ -7,9 +7,8 @@ import FreePalestine from './components/FreePalestine/FreePalestine';
 
 import { CustomSectionsConfig, CommonConfig } from './config';
 
-type SectionRefs = {
-  [key: string]: React.RefObject<HTMLElement>;
-};
+// Type for section refs
+export type SectionRefs = Record<string, RefObject<HTMLElement>>;
 
 const App: React.FC = () => {
   const sectionRefs = useRef<SectionRefs>({});
@@ -17,8 +16,9 @@ const App: React.FC = () => {
   // Initialize refs for custom sections only once
   useEffect(() => {
     CustomSectionsConfig.forEach((customSection) => {
-      if (!sectionRefs.current[customSection.name]) {
-        sectionRefs.current[customSection.name] = React.createRef<HTMLElement>();
+      const name = customSection.name as string;
+      if (!sectionRefs.current[name]) {
+        sectionRefs.current[name] = React.createRef<HTMLElement>();
       }
     });
     // eslint-disable-next-line
@@ -35,7 +35,7 @@ const App: React.FC = () => {
       localStorage.setItem('theme', 'dark');
       document.body.classList.add('dark-mode');
     }
-    document.title = CommonConfig.name + ' - ' + CommonConfig.tagline;
+    document.title = `${CommonConfig.name} - ${CommonConfig.tagline}`;
   }, []);
 
   return (

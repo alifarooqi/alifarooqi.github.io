@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { ReactNode, ReactElement, forwardRef } from 'react';
 import './Section.scss';
 
-class Section extends React.Component {
-    render() {
-        return (
-            <div className="section-wrapper">
-                <div className={!this.props.extraClass ? 'section' : ('section ' + this.props.extraClass)}>
-                    <h2 className="section-header">
-                        {React.cloneElement(this.props.headerIcon, { classes: { root: 'section-header-icon' } })}
-                        {this.props.sectionHeader}
-                    </h2>
-                    <div className="section-content">
-                        {this.props.children}
-                    </div>
-                </div>
-            </div>
-        );
-    }
+interface SectionProps {
+  sectionHeader: string;
+  headerIcon: ReactElement;
+  extraClass?: string;
+  children?: ReactNode;
 }
+
+// Using forwardRef to allow ref forwarding if needed
+const Section = forwardRef<HTMLDivElement, SectionProps>(
+  ({ sectionHeader, headerIcon, extraClass = '', children }, ref) => (
+    <div className="section-wrapper" ref={ref}>
+      <div className={extraClass ? `section ${extraClass}` : 'section'}>
+        <h2 className="section-header">
+          {React.cloneElement(headerIcon, { classes: { root: 'section-header-icon' } })}
+          {sectionHeader}
+        </h2>
+        <div className="section-content">
+          {children}
+        </div>
+      </div>
+    </div>
+  )
+);
+
+Section.displayName = 'Section';
 
 export default Section;

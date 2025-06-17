@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 // ICONS
 import SvgIcon from '@mui/material/SvgIcon';
@@ -27,32 +27,57 @@ import { ReactComponent as TypeScriptIcon } from '../assets/icons/typescript-pla
 import { ReactComponent as GraphQLIcon } from '../assets/icons/graphql.svg';
 // ICONS END
 
-/** Default icons */
-const Icons = {
-    email: <MailIcon />,
-    facebook: <SvgIcon component={FacebookIcon} />,
-    twitter: <Twitter />,
-    github: <SvgIcon component={GitHubIcon} stroke="currentColor" strokeWidth={2} style={{ fill: 'none' }} />,
-    linkedin: <SvgIcon component={LinkedInIcon} />,
-    projects: <ComputerIcon />,
-    about: <InfoIcon />,
-    cpp: <SvgIcon component={CppIcon} viewBox="0 0 128 128" fontSize="large" title="C++" />,
-    java: <SvgIcon component={JavaIcon} viewBox="0 0 128 128" fontSize="large" title="Java" />,
-    typescript: <SvgIcon component={TypeScriptIcon} viewBox="0 0 128 128" fontSize="large" title="TypeScript" />,
-    javascript: <SvgIcon component={JavaScriptIcon} viewBox="0 0 128 128" fontSize="large" title="JavaScript" />,
-    mysql: <SvgIcon component={MySQLIcon} viewBox="0 0 128 128" fontSize="large" title="MySQL" />,
-    php: <SvgIcon component={PHPIcon} viewBox="0 0 128 128" fontSize="large" title="PHP" />,
-    mongodb: <SvgIcon component={MongoDBIcon} viewBox="0 0 128 128" fontSize="large" title="MongoDB" />,
-    nodejs: <SvgIcon component={NodejsIcon} viewBox="0 0 128 128" fontSize="large" title="Node.js" />,
-    react: <SvgIcon component={ReactIcon} viewBox="0 0 128 128" fontSize="large" title="React" />,
-    angular: <SvgIcon component={AngularIcon} viewBox="0 0 128 128" fontSize="large" title="Angular" />,
-    graphql: <SvgIcon component={GraphQLIcon} viewBox="0 0 400 400" fontSize="large" title="GraphQL" />,
-    helpoutline: <HelpOutlineIcon />,
-    map: <MapIcon />,
-    code: <CodeIcon />,
-    link: <LinkIcon />,
-    web: <WebIcon />
+type IconKey =
+  | 'email'
+  | 'facebook'
+  | 'twitter'
+  | 'github'
+  | 'linkedin'
+  | 'projects'
+  | 'about'
+  | 'cpp'
+  | 'java'
+  | 'typescript'
+  | 'javascript'
+  | 'mysql'
+  | 'php'
+  | 'mongodb'
+  | 'nodejs'
+  | 'react'
+  | 'angular'
+  | 'graphql'
+  | 'helpoutline'
+  | 'map'
+  | 'code'
+  | 'link'
+  | 'web';
+
+type IconsType = Record<IconKey, ReactElement>;
+
+const Icons: IconsType = {
+  email: <MailIcon />,
+  facebook: <SvgIcon component={FacebookIcon} />,
+  twitter: <Twitter />,
+  github: <SvgIcon component={GitHubIcon} stroke="currentColor" strokeWidth={2} style={{ fill: 'none' }} />,
+  linkedin: <SvgIcon component={LinkedInIcon} />,
+  projects: <ComputerIcon />,
+  about: <InfoIcon />,
+  cpp: <SvgIcon component={CppIcon} viewBox="0 0 128 128" fontSize="large" title="C++" />,
+  java: <SvgIcon component={JavaIcon} viewBox="0 0 128 128" fontSize="large" title="Java" />,
+  typescript: <SvgIcon component={TypeScriptIcon} viewBox="0 0 128 128" fontSize="large" title="TypeScript" />,
+  javascript: <SvgIcon component={JavaScriptIcon} viewBox="0 0 128 128" fontSize="large" title="JavaScript" />,
+  mysql: <SvgIcon component={MySQLIcon} viewBox="0 0 128 128" fontSize="large" title="MySQL" />,
+  php: <SvgIcon component={PHPIcon} viewBox="0 0 128 128" fontSize="large" title="PHP" />,
+  mongodb: <SvgIcon component={MongoDBIcon} viewBox="0 0 128 128" fontSize="large" title="MongoDB" />,
+  nodejs: <SvgIcon component={NodejsIcon} viewBox="0 0 128 128" fontSize="large" title="Node.js" />,
+  react: <SvgIcon component={ReactIcon} viewBox="0 0 128 128" fontSize="large" title="React" />,
+  angular: <SvgIcon component={AngularIcon} viewBox="0 0 128 128" fontSize="large" title="Angular" />,
+  graphql: <SvgIcon component={GraphQLIcon} viewBox="0 0 400 400" fontSize="large" title="GraphQL" />,
+  helpoutline: <HelpOutlineIcon />,
+  map: <MapIcon />,
+  code: <CodeIcon />,
+  link: <LinkIcon />,
+  web: <WebIcon />,
 };
 
-
-export { Icons };
+export { Icons, type IconKey, type IconsType };

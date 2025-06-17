@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, RefObject } from 'react';
 import MenuToggle from './MenuToggle/MenuToggle';
 import MenuItem from './MenuItem/MenuItem';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
@@ -8,16 +8,21 @@ import './Menu.scss';
 
 import { CustomSectionsConfig } from '../../config';
 
-type SectionRefs = {
-  [key: string]: React.RefObject<HTMLElement>;
-};
+export type SectionRefs = Record<string, RefObject<HTMLElement>>;
 
 interface MenuProps {
   sectionRefs: SectionRefs;
 }
 
+interface MenuItemType {
+  icon: React.ReactNode;
+  tooltip: string;
+  action: () => void;
+  key: string;
+}
+
 const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
-  const [menuActive, setMenuActive] = useState(false);
+  const [menuActive, setMenuActive] = useState<boolean>(false);
 
   const scrollToSection = useCallback(
     (sectionName: string) => {
@@ -33,8 +38,8 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
     [sectionRefs]
   );
 
-  const menuItems = useMemo(() => {
-    const baseItems = [
+  const menuItems: MenuItemType[] = useMemo(() => {
+    const baseItems: Omit<MenuItemType, 'key'>[] = [
       {
         icon: <ArrowUpwardIcon classes={{ root: 'menu-item-icon' }} />,
         tooltip: 'go to top',
@@ -61,11 +66,13 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
       },
     ];
 
-    const sectionItems = CustomSectionsConfig.filter(section => !section.notInMenu).map(section => ({
-      icon: React.cloneElement(section.headerIcon, { classes: { root: 'menu-item-icon' } }),
-      tooltip: section.name,
-      action: () => scrollToSection(section.name),
-    }));
+    const sectionItems: Omit<MenuItemType, 'key'>[] = CustomSectionsConfig
+      .filter(section => !section.notInMenu)
+      .map(section => ({
+        icon: React.cloneElement(section.headerIcon, { classes: { root: 'menu-item-icon' } }),
+        tooltip: section.name,
+        action: () => scrollToSection(section.name),
+      }));
 
     // Add unique keys
     return [...baseItems, ...sectionItems].map((item, idx) => ({
