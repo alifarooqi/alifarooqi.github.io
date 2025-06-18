@@ -14,6 +14,8 @@ const Section = forwardRef<HTMLDivElement, SectionProps>(
     <div className="section-wrapper" ref={ref}>
       <div className={extraClass ? `section ${extraClass}` : 'section'}>
         <h2 className="section-header">
+          { /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+          { /* @ts-ignore */ }
           {React.cloneElement(headerIcon, { classes: { root: 'section-header-icon' } })}
           {sectionHeader}
         </h2>

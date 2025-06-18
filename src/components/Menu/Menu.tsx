@@ -69,6 +69,8 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
     const sectionItems: Omit<MenuItemType, 'key'>[] = CustomSectionsConfig
       .filter(section => !section.notInMenu && React.isValidElement(section.headerIcon))
       .map(section => ({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         icon: React.cloneElement(section.headerIcon, { classes: { root: 'menu-item-icon' } }),
         tooltip: section.name,
         action: () => scrollToSection(section.name),
@@ -91,9 +93,8 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
     <div className={menuActive ? 'menu menu-active' : 'menu'}>
       <div className="menu-backdrop" onClick={closeMenu}></div>
       <div className="menu-data">
-        <MenuToggle isMobile={isMobile} toggleMenu={() => setMenuActive(m => !m)}>
-          ME<br />NU
-        </MenuToggle>
+        <MenuToggle isMobile={isMobile} toggleMenu={() => setMenuActive(m => !m)} />
+
         {menuItems.map((menuItem, index) => {
           let angle = startAngle;
           let increment = 0;
