@@ -29,9 +29,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   rotationAngle,
 }) => {
   const style: CSSProperties = menuActive
-    ? {
-        transform: activeTransformStyle(rotationAngle, -rotationAngle, isMobile),
-      }
+    ? { transform: activeTransformStyle(rotationAngle, -rotationAngle, isMobile)}
     : {};
 
   return (
@@ -40,7 +38,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       tooltip={tooltip}
       onClick={action}
       tooltipPlacement={tooltipPlacement}
-      size={3.5}
+      size={isMobile ? 2.5 : 3.5}
       style={style}
     >
       {icon}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, RefObject } from 'react';
+import React, { useEffect, useRef, RefObject, createRef } from 'react';
 import Menu from './components/Menu/Menu';
 import TopSection from './sections/TopSection/TopSection';
 import CustomSections from './sections/CustomSections/CustomSections';
@@ -8,7 +8,7 @@ import FreePalestine from './components/FreePalestine/FreePalestine';
 import { CustomSectionsConfig, CommonConfig } from './config';
 
 // Type for section refs
-export type SectionRefs = Record<string, React.RefObject<HTMLDivElement>>;
+export type SectionRefs = Record<string, RefObject<HTMLDivElement>>;
 
 const App: React.FC = () => {
   const sectionRefs = useRef<SectionRefs>({});
@@ -18,10 +18,9 @@ const App: React.FC = () => {
     CustomSectionsConfig.forEach((customSection) => {
       const name = customSection.name as string;
       if (!sectionRefs.current[name]) {
-        sectionRefs.current[name] = React.createRef<HTMLDivElement>() as React.RefObject<HTMLDivElement>;
+        sectionRefs.current[name] = createRef<HTMLDivElement>() as RefObject<HTMLDivElement>;
       }
     });
-    // eslint-disable-next-line
   }, []);
 
   // Theme and document title logic
@@ -35,7 +34,6 @@ const App: React.FC = () => {
       localStorage.setItem('theme', 'dark');
       document.body.classList.add('dark-mode');
     }
-    document.title = `${CommonConfig.name} - ${CommonConfig.tagline}`;
   }, []);
 
   return (

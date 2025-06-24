@@ -28,11 +28,10 @@ const TopSection: React.FC = () => {
 
   return (
     <div className="top-section">
-      <div className="intro">
-        <h1>{CommonConfig.name}</h1>
-        <p>{CommonConfig.tagline}</p>
-      </div>
       <div className="signature">
+        <div className="avatar">
+          <img className='profile-picture' src='faceshot.png' alt="Profile" />
+        </div>
         <svg viewBox={CommonConfig.signature?.viewBox}>
           <path
             ref={pathRef}
@@ -42,6 +41,11 @@ const TopSection: React.FC = () => {
             d={CommonConfig.signature?.signaturePathD}
           />
         </svg>
+      </div>
+
+      <div className="intro">
+        <h1>{CommonConfig.name}</h1>
+        <h2>{CommonConfig.tagline}</h2>
       </div>
       <div className="social">
         {CommonConfig.social.map((socialDetails, index) => (

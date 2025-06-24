@@ -1,5 +1,5 @@
 {
-  "name": "krit",
+  "name": "ali-portfolio",
   "version": "0.1.0",
   "description": "A configurable personal website template for minimalists.",
   "homepage": "./",
@@ -10,9 +10,9 @@
     "web developer"
   ],
   "author": {
-    "name": "Fawad Ali",
-    "email": "m.fawaadali98@gmail.com",
-    "url": "https://github.com/9inpachi"
+    "name": "Ali Farooqi",
+    "email": "m.ali_farooqi@hotmail.com",
+    "url": "https://github.com/alifarooqi"
   },
   "scripts": {
     "start": "react-scripts start",

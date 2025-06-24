@@ -41,15 +41,8 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
   const menuItems: MenuItemType[] = useMemo(() => {
     const baseItems: Omit<MenuItemType, 'key'>[] = [
       {
-        icon: <ArrowUpwardIcon classes={{ root: 'menu-item-icon' }} />,
-        tooltip: 'go to top',
-        action: () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        },
-      },
-      {
         icon: <NightsStayIcon classes={{ root: 'menu-item-icon' }} />,
-        tooltip: 'toggle dark/light theme',
+        tooltip: 'Toggle dark/light theme',
         action: () => {
           document.body.classList.toggle('dark-mode');
           if (document.body.classList.contains('dark-mode')) {
@@ -58,11 +51,6 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
             localStorage.setItem('theme', 'light');
           }
         },
-      },
-      {
-        icon: <ComputerIcon classes={{ root: 'menu-item-icon' }} />,
-        tooltip: 'projects',
-        action: () => scrollToSection('projects'),
       },
     ];
 
@@ -77,9 +65,9 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
       }));
 
     // Add unique keys
-    return [...baseItems, ...sectionItems].map((item, idx) => ({
+    return [...baseItems, ...sectionItems].map((item) => ({
       ...item,
-      key: `menu-item-${idx}-${item.tooltip}`,
+      key: `menu-item-${item.tooltip}`,
     }));
   }, [scrollToSection]);
 

@@ -1,9 +1,9 @@
 {
-  "short_name": "Fawad",
-  "name": "Fawad - Software Developer",
+  "short_name": "Ali",
+  "name": "Ali - Software Engineer",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "logo-gold.svg",
       "type": "image/png",
       "sizes": "192x192"
     }

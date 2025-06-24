@@ -25,7 +25,6 @@ const CircleButton: React.FC<CircleButtonProps> = ({
   tooltipPlacement,
   children,
 }) => {
-  const ButtonTag = link ? 'a' : 'button';
   const combinedClassName = className ? `circle-button ${className}` : 'circle-button';
   const buttonStyle = { width: `${size}rem`, height: `${size}rem`, ...style };
 
