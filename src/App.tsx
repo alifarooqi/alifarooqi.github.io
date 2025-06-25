@@ -6,6 +6,7 @@ import Footer from './sections/Footer/Footer';
 import FreePalestine from './components/FreePalestine/FreePalestine';
 
 import { CustomSectionsConfig, CommonConfig } from './config';
+import ProjectsSection from './sections/ProjectSection/ProjectSection';
 
 // Type for section refs
 export type SectionRefs = Record<string, RefObject<HTMLDivElement>>;
@@ -41,6 +42,7 @@ const App: React.FC = () => {
       {CommonConfig.addFreePalestine && <FreePalestine />}
       <Menu sectionRefs={sectionRefs.current} />
       <TopSection />
+      <ProjectsSection sectionRefs={sectionRefs.current} />
       <CustomSections sectionRefs={sectionRefs.current} />
       <Footer />
     </>
