@@ -24,12 +24,10 @@ import React, { ReactNode } from 'react';
 import { Icons } from './icons';
 
 // CUSTOM ICONS
-import SettingsInputAntennaIcon from '@mui/icons-material/SettingsInputAntenna';
-import WbIridescentIcon from '@mui/icons-material/WbIridescent';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ComputerIcon from '@mui/icons-material/Computer';
 import InfoIcon from '@mui/icons-material/Info';
 import RateReviewIcon from '@mui/icons-material/RateReview';
+import ReviewsIcon from '@mui/icons-material/Reviews';
 import Description from '@mui/icons-material/Description';
 
 // CUSTOM COMPONENTS
@@ -67,16 +65,11 @@ export interface ProjectLink {
 export interface Project {
   name: string;
   icon: ReactNode;
-  description: string;
+  description: React.ReactNode;
+  duration: string;
   links: ProjectLink[];
 }
 
-export interface ProjectsConfigType {
-  name: string;
-  headerIcon: ReactNode;
-  extraClass: string;
-  projects: Project[];
-}
 
 export interface CustomSection {
   name: string;
@@ -109,107 +102,126 @@ const CommonConfig: CommonConfigType = {
       link: 'https://linkedin.com/in/ali-farooqi',
     },
     {
-      name: 'Facebook',
-      link: 'https://facebook.com/9inpachi',
-    },
-    {
-      name: 'Twitter',
-      link: 'https://twitter.com/9inpachi',
-    },
-    {
       name: 'Email',
       link: 'mailto:m.ali_farooqi@hotmail.com',
     },
     {
       name: 'CV',
-      link: 'https://docs.google.com/document/d/15uVQAhsvKsreOd9Xvh9f-HGMkqpI_7dMuSKmQQvFdCo/view?usp=sharing',
+      link: 'https://drive.google.com/file/d/1NtC22cVw6pDmggtAIOqbKQxPevvWRIrX/view?usp=sharing',
       icon: <Description />,
     },
   ],
 };
 
-const ProjectsConfig: ProjectsConfigType = {
-  name: 'projects',
-  headerIcon: <ComputerIcon />,
-  extraClass: '',
-  projects: [
+const Projects: Project[] = [
     {
-      name: 'Interactive Maps Application',
-      icon: Icons['map'],
+      name: 'Identity and Access Management',
+      icon: Icons['security'],
+      duration: '2020 - 2025',
       description:
-        'An application extension in XWiki to easily create interactive maps with ability to share locations and associate structured data with areas.',
+        <>An IAM system for a cloud-based IoT solution using <b>Scala</b> and <b>React</b>. The system features PKI-based authentication for hardware devices and JWT-based authentication for users and services, ensuring secure access control. It also includes a built-in policy management system for granular access permissions, enhancing security and simplifying management.</>,
+      links: [],
+    },
+    {
+      name: 'Energy Efficiency Solution',
+      icon: Icons['energy'],
+      duration: '2023 - 2024',
+      description:
+        <>A machine energy monitoring dashboard using <b>React</b> and <b>Chart.js</b> for the frontend, with a <b>Kotlin</b> backend. The dashboard features real-time monitoring of energy usage and historical data analysis, providing interactive charts and visualizations. This tool helps users track energy consumption patterns and optimize machinery efficiency.</>,
+      links: [],
+    },
+    {
+      name: 'EczeTrack',
+      icon: Icons['app'],
+      duration: '2020',
+      description:
+        <>A <b>React Native</b> mobile app with <b>NodeJS</b> to track Eczema symptoms in patients, designed to help them save time recording lifestyle habits.</>,
+      links: [
+        {
+          tooltip: 'See source (Frontend)',
+          link: 'https://github.com/alifarooqi/EczeTrack-Frontend/',
+          icon: Icons['code'],
+        },
+        {
+          tooltip: 'See source (Backend)',
+          link: 'https://github.com/alifarooqi/EczeTrack-Backend/',
+          icon: Icons['code'],
+        },
+      ],
+    },
+    {
+      name: 'Tic Tac Toe',
+      icon: Icons['smartToy'],
+      duration: '2017',
+      description: 'A Tic Tac Toe game with an unbeatible AI Agent.',
       links: [
         {
           tooltip: 'See source',
-          link: 'https://github.com/xwiki-contrib/application-interactive-maps',
+          link: 'https://codepen.io/ali-farooqi/pen/RZgExb',
           icon: Icons['code'],
         },
         {
           tooltip: 'See app',
-          link: 'https://extensions.xwiki.org/xwiki/bin/view/Extension/InteractiveMapsApplication/',
+          link: 'https://codepen.io/ali-farooqi/full/RZgExb',
           icon: Icons['link'],
         },
       ],
     },
     {
-      name: 'OpenCL code-generation backend for GPU-enhanced Neural Networks',
-      icon: <SettingsInputAntennaIcon />,
+      name: 'Simon Game',
+      icon: Icons['videoGame'],
+      duration: '2017',
       description:
-        'GeNN is a GPU-enhanced Neuronal Network simulation environment based on code generation for NVIDIA CUDA. This project added a new OpenCL based backend to GeNN.',
+        'Brought back the childhood memories with this Simon Game. A simple game where you have to repeat the sequence of colors shown by the game.',
       links: [
-        {
+                {
           tooltip: 'See source',
-          link: 'https://github.com/9inpachi/genn',
-          icon: Icons['code'],
-        },
-      ],
-    },
-    {
-      name: 'Phoenix',
-      icon: <WbIridescentIcon />,
-      description: 'A web-based experiment independent event display for High Energy Physics.',
-      links: [
-        {
-          tooltip: 'See source',
-          link: 'https://github.com/hsf/phoenix',
+          link: 'https://codepen.io/ali-farooqi/pen/VzXawr',
           icon: Icons['code'],
         },
         {
           tooltip: 'See app',
-          link: 'https://hepsoftwarefoundation.org/phoenix/',
+          link: 'https://codepen.io/ali-farooqi/full/VzXawr',
           icon: Icons['link'],
         },
       ],
     },
-    {
-      name: 'Empower Youth for Work - Oxfam GB',
-      icon: <BusinessCenterIcon />,
+        {
+      name: 'Pomodoro Timer',
+      icon: Icons['timer'],
+      duration: '2017',
       description:
-        'A web system to manage beneficiaries information and keep track of beneficiaries influenced by the EYW project.',
+        'A Pomodoro Timer to help you focus on your work. It has a simple UI and a timer which will help you focus on your work for 25 minutes and then take a break for 5 minutes.',
       links: [
+                {
+          tooltip: 'See source',
+          link: 'https://codepen.io/ali-farooqi/pen/YxpVMM',
+          icon: Icons['code'],
+        },
         {
           tooltip: 'See app',
-          link: 'https://oipeywdb.com/',
+          link: 'https://codepen.io/ali-farooqi/full/YxpVMM',
           icon: Icons['link'],
         },
       ],
     },
-  ],
-};
+
+  ]
 
 const CustomSectionsConfig: CustomSection[] = [
   {
-    name: 'projects',
+    name: 'Projects',
     headerIcon: <ComputerIcon />,
     extraClass: '',
     notInMenu: false,
     content: (
       <>
-        {ProjectsConfig.projects.map((project, index) => (
+        {Projects.map((project, index) => (
           <div key={'project-' + index}>
-            <h3 style={{ fontSize: '1.4rem' }}>
+            <h3 style={{ fontSize: '1.4rem', textDecoration: 'underline' }}>
               {project.icon} {project.name}
             </h3>
+            <h4 style={{ color: 'unset' }}>{Icons['schedule']}<em>{project.duration}</em></h4>
             <p>{project.description}</p>
             <div style={{ textAlign: 'right' }}>
               {project.links.map((link, linkIndex) => (
@@ -230,89 +242,82 @@ const CustomSectionsConfig: CustomSection[] = [
     ),
   },
   {
-    name: 'about',
+    name: 'About',
     headerIcon: <InfoIcon />,
     extraClass: 'about-section section-reverse',
     content: (
       <>
-        <h4>{Icons['helpoutline']} who is this guy?</h4>
+        <h4>{Icons['helpoutline']} Who is this guy?</h4>
         <p>
-          An easily excited and a highly passionate full stack developer trying to support the world of open source with his little efforts. Full of eagerness to learn and work on new technologies. :)
+          Engineer by trade, bridge-builder by nature — I design secure, scalable platforms and help global tech thrive in the Chinese cloud. Off the clock, you’ll find me watching football, probably yelling at the screen like it’s a code review :)
         </p>
 
-        <h4>{Icons['code']} programming</h4>
+        <h4>{Icons['code']} Programming</h4>
         <p className="programming-icons">
           {Icons['java']}
           {Icons['cpp']}
           {Icons['typescript']}
-          {Icons['javascript']}
-        </p>
-
-        <h4>{Icons['web']} web</h4>
-        <p className="programming-icons">
-          {Icons['graphql']}
-          {Icons['mysql']}
-          {Icons['php']}
-          {Icons['mongodb']}
+          {Icons['scala']}
+          {Icons['kotlin']}          
           {Icons['nodejs']}
           {Icons['react']}
-          {Icons['angular']}
+
+        </p>
+
+        <h4>{Icons['tools']} Tools</h4>
+        <p className="programming-icons">
+          {Icons['graphql']}
+          {Icons['postgresql']}
+          {Icons['terraform']}
+          {Icons['mongodb']}
+          {Icons['kubernetes']}
         </p>
       </>
     ),
   },
   {
-    name: 'reviews',
-    headerIcon: <RateReviewIcon />,
+    name: 'Reviews',
+    headerIcon: <ReviewsIcon />,
     content: (
       <>
-        <h4 style={{ fontSize: '2em' }}>{Icons['helpoutline']} what do others say?</h4>
+        <h4 style={{ fontSize: '2em' }}><RateReviewIcon /> What do others say?</h4>
+
         <p>
-          <span style={{ fontSize: '5rem', height: '30px', display: 'block' }}>“</span>
+          <span style={{ fontSize: '5rem', height: '30px', display: 'block', color: 'var(--brand-color)'  }}>“</span>
           <br />
-          Fawad did an excellent job for us on Phoenix. He worked hard, writing very good and legible code and made an invaluable contribution to the project.
+          I had the pleasure of working alongside Ali at KM.ON GmbH as Project Manager on several shared projects and initiatives where his broad technical expertise, availability and reliability stood out. Even when managing multiple complex projects, he consistently navigated challenges with confidence and ensured smooth progress, making him an essential asset to our work.
         </p>
-        <p>We like that he is very motivated, self-driven and is already an experienced and knowledgable coder.</p>
+        <p>Ali has a remarkable talent for remaining calm under pressure and maintaining a focused, solution-driven mindset, making him someone the entire team could rely on. Beyond his professional expertise, he brought a positive energy to the workplace, making collaboration not only productive but genuinely enjoyable. His approachable nature fostered a supportive environment and his contributions were invaluable to our collective success.</p>
+        <p>It was truly a pleasure to work with Ali and I am confident that any team would greatly benefit from his expertise, dedication and exceptional professionalism.</p>
         <p style={{ textAlign: 'right', fontSize: 'small' }}>
           <i>
-            <b>Edward Moyse</b>
+            <b>Daniela Baretti</b>
             <br />
-            Software Coordinator
+            Junior Project Manager
             <br />
-            CERN
+            KM.ON GmbH
           </i>
         </p>
+
         <p>
-          <span style={{ fontSize: '5rem', height: '30px', display: 'block' }}>“</span>
+          <span style={{ fontSize: '5rem', height: '30px', display: 'block', color: 'var(--brand-color)' }}>“</span>
           <br />
-          The mentors have noticed that Fawad has strong technical skills, an ability to learn quickly new technologies, that he is very flexible and open minded, ready to discuss his views and to ponder about the pros and cons in a thoughtful and collected manner, making his own decisions taking into account the feedback he gets without accepting everything nor rejecting anything.
+          Wish to recognize Muhammad Ali Farooqi and Amsal Lakhani for supporting WeDerm Health in developing our prototype in a tight timeframe. Also credits to our professional UX designer Blair KIM for everything visual.
         </p>
+        <p>...If anyone is looking for software developers, do get connected with them!</p>
         <p style={{ textAlign: 'right', fontSize: 'small' }}>
           <i>
-            <b>Stéphane Lauriere &amp; Ecaterina Moraru</b>
+            <b>Harrison Li 李健彰</b>
             <br />
-            XWiki SAS
+            Co-Founder & CEO
+            <br />
+            WeDerm Health
           </i>
         </p>
-        <p>
-          <span style={{ fontSize: '5rem', height: '30px', display: 'block' }}>“</span>
-          <br />
-          I have really appreciated your confidence to solve problems yourself and follow your own intuition even when it goes against what I was suggesting. I feel you were mostly right :)
-        </p>
-        <p style={{ textAlign: 'right', fontSize: 'small' }}>
-          <i>
-            <b>James Knight</b>
-            <br />
-            GeNN Team
-            <br />
-            Research Fellow
-            <br />
-            The University of Sussex
-          </i>
-        </p>
+
       </>
     ),
   },
 ];
 
-export { CommonConfig, ProjectsConfig, CustomSectionsConfig, Icons };
+export { CommonConfig, CustomSectionsConfig, Icons };

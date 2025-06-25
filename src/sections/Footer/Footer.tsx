@@ -5,7 +5,7 @@ import './Footer.scss';
 import { CommonConfig, Icons } from '../../config';
 
 const Footer: React.FC = () => (
-  <div className="footer">
+  <footer className="footer">
     <p>
       Copyright &copy; {new Date().getFullYear()} All rights reserved
     </p>
@@ -24,16 +24,7 @@ const Footer: React.FC = () => (
         </CircleButton>
       ))}
     </p>
-    <p>
-      <a
-        href="https://github.com/9inpachi/krit"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        get the code {'</>'}
-      </a>
-    </p>
-  </div>
+  </footer>
 );
 
 export default Footer;
