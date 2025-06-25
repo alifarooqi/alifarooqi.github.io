@@ -4,15 +4,16 @@ import './Section.scss';
 interface SectionProps {
   sectionHeader: string;
   headerIcon: ReactElement;
+  isReversed?: boolean; // Optional prop to reverse the section layout
   extraClass?: string;
   children?: ReactNode;
 }
 
 // Using forwardRef to allow ref forwarding if needed
 const Section = forwardRef<HTMLDivElement, SectionProps>(
-  ({ sectionHeader, headerIcon, extraClass = '', children }, ref) => (
+  ({ sectionHeader, headerIcon, extraClass = '', children, isReversed = false }, ref) => (
     <div className="section-wrapper" ref={ref}>
-      <div className={extraClass ? `section ${extraClass}` : 'section'}>
+      <div className={`section ${isReversed ? 'section-reverse' : '' } ${extraClass ? extraClass : ''}`}>
         <h2 className="section-header">
           { /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           { /* @ts-ignore */ }
