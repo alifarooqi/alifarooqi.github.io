@@ -1,5 +1,5 @@
 import React, { RefObject } from 'react';
-import Section from '../Section/Section';
+import Section from '../../components/Section/Section';
 import { CustomSectionsConfig } from '../../config';
 import './CustomSections.scss';
 
