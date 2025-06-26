@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { TypeAnimation } from 'react-type-animation';
 import CircleButton from '../../components/CircleButton/CircleButton';
-import './TopSection.scss';
-
 import CommonConfig from '../../config/CommonConfig';
 import { getIcon, IconKey } from '../../assets/icons/Icons';
+import './TopSection.scss';
 
 const TopSection: React.FC = () => {
   const pathRef = useRef<SVGPathElement | null>(null);
@@ -46,7 +46,12 @@ const TopSection: React.FC = () => {
 
       <div className="intro">
         <h1>{CommonConfig.name}</h1>
-        <h2>{CommonConfig.tagline}</h2>
+        <TypeAnimation
+          sequence={CommonConfig.taglines.flatMap(t => [`${t}...`, 2000])}
+          wrapper="h2"
+          repeat={Infinity}
+        />
+
       </div>
       <div className="social">
         {CommonConfig.social.map((socialDetails, index) => (

@@ -15,7 +15,7 @@ interface SignatureConfig {
 interface CommonConfigType {
   addFreePalestine: boolean;
   name: string;
-  tagline: string;
+  taglines: string[];
   signature: SignatureConfig;
   profilePicture: string;
   email: string;
@@ -32,7 +32,7 @@ const signature: SignatureConfig = {
 const CommonConfig: CommonConfigType = {
   addFreePalestine: false,
   name: 'Ali Farooqi',
-  tagline: 'Software Engineer',
+  taglines: ['Software Engineer', 'Software Developer', 'Cloud-Native Builder', 'Open Source Contributor', 'Tech Enthusiast'],
   signature,
   profilePicture: '',
   email: 'm.ali_farooqi@hotmail.com',
