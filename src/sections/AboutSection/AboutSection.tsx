@@ -1,45 +1,50 @@
-import React from 'react';
-import InfoIcon from '@mui/icons-material/Info';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import CodeIcon from '@mui/icons-material/Code';
-import WebIcon from '@mui/icons-material/Web';
-import SvgIcon from '@mui/material/SvgIcon';
+import React, { forwardRef } from 'react';
 import Section from '../../components/Section/Section';
-import { ReactComponent as CppIcon } from '../../assets/icons/cplusplus-plain.svg';
-import { ReactComponent as JavaIcon } from '../../assets/icons/java-plain-wordmark.svg';
-import { ReactComponent as AngularIcon } from '../../assets/icons/angularjs-plain-wordmark.svg';
-import { ReactComponent as JavaScriptIcon } from '../../assets/icons/javascript-plain.svg';
-import { ReactComponent as MongoDBIcon } from '../../assets/icons/mongodb-plain-wordmark.svg';
-import { ReactComponent as MySQLIcon } from '../../assets/icons/mysql-plain-wordmark.svg';
-import { ReactComponent as NodejsIcon } from '../../assets/icons/nodejs-plain-wordmark.svg';
-import { ReactComponent as PHPIcon } from '../../assets/icons/php-plain.svg';
-import { ReactComponent as ReactIcon } from '../../assets/icons/react-original-wordmark.svg';
-import { ReactComponent as TypeScriptIcon } from '../../assets/icons/typescript-plain.svg';
+import { getIcon } from '../../assets/icons/Icons';
+import SectionConfig from '../../config/SectionConfig';
 import './AboutSection.scss';
 
-const AboutSection: React.FC = () => (
-  <Section sectionHeader="about" headerIcon={<InfoIcon />} extraClass="about-section section-reverse">
-    <h4><HelpOutlineIcon /> who am i?</h4>
-    <p>
-      An easily excited and a highly passionate full stack developer trying to support the world of open source with his little efforts. :)
-    </p>
-    <h4><CodeIcon /> programming</h4>
-    <p className="programming-icons">
-      <SvgIcon component={JavaIcon} viewBox="0 0 128 128" fontSize="large" />
-      <SvgIcon component={CppIcon} viewBox="0 0 128 128" fontSize="large" />
-      <SvgIcon component={TypeScriptIcon} viewBox="0 0 128 128" fontSize="large" />
-      <SvgIcon component={JavaScriptIcon} viewBox="0 0 128 128" fontSize="large" />
-    </p>
-    <h4><WebIcon /> web</h4>
-    <p className="programming-icons">
-      <SvgIcon component={MySQLIcon} viewBox="0 0 128 128" fontSize="large" />
-      <SvgIcon component={PHPIcon} viewBox="0 0 128 128" fontSize="large" />
-      <SvgIcon component={MongoDBIcon} viewBox="0 0 128 128" fontSize="large" />
-      <SvgIcon component={NodejsIcon} viewBox="0 0 128 128" fontSize="large" />
-      <SvgIcon component={ReactIcon} viewBox="0 0 128 128" fontSize="large" />
-      <SvgIcon component={AngularIcon} viewBox="0 0 128 128" fontSize="large" />
-    </p>
-  </Section>
-);
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const AboutSectionConfig = SectionConfig.find(section => section.key === 'about')!;
+
+const AboutSection = forwardRef<HTMLDivElement>((_, ref) => (
+    <Section 
+      ref={ref}
+      sectionHeader={AboutSectionConfig.name} 
+      headerIcon={AboutSectionConfig.headerIcon} 
+      isReversed
+      extraClass="about-section"
+    >
+      <h4>
+        {getIcon('helpoutline')} Who is this guy?
+      </h4>
+      
+      <p>
+        Engineer by trade, bridge-builder by nature — I design secure, scalable platforms and help global tech thrive in the Chinese cloud. Off the clock, you’ll find me watching football, probably yelling at the screen like it’s a code review :)
+      </p>
+
+      <h4>{getIcon('code')} Programming</h4>
+      <p className="programming-icons">
+        {getIcon('java')}
+        {getIcon('cpp')}
+        {getIcon('typescript')}
+        {getIcon('scala')}
+        {getIcon('kotlin')}          
+        {getIcon('nodejs')}
+        {getIcon('react')}
+      </p>
+
+      <h4>{getIcon('tools')} Tools</h4>
+      <p className="programming-icons">
+        {getIcon('graphql')}
+        {getIcon('postgresql')}
+        {getIcon('terraform')}
+        {getIcon('mongodb')}
+        {getIcon('kubernetes')}
+      </p>
+    </Section>
+));
+
+AboutSection.displayName = 'AboutSection';
 
 export default AboutSection;

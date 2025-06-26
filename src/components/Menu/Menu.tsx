@@ -1,14 +1,12 @@
-import React, { useState, useMemo, useCallback, RefObject } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import MenuToggle from './MenuToggle/MenuToggle';
 import MenuItem from './MenuItem/MenuItem';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
-import ComputerIcon from '@mui/icons-material/Computer';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import SectionConfig, { SectionRefs, Sections } from '../../config/SectionConfig';
+
 import './Menu.scss';
 
-import { CustomSectionsConfig } from '../../config';
 
-export type SectionRefs = Record<string, RefObject<HTMLElement>>;
 
 interface MenuProps {
   sectionRefs: SectionRefs;
@@ -25,7 +23,7 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
   const [menuActive, setMenuActive] = useState<boolean>(false);
 
   const scrollToSection = useCallback(
-    (sectionName: string) => {
+    (sectionName: Sections) => {
       const ref = sectionRefs[sectionName];
       if (ref && ref.current) {
         window.scrollTo({
@@ -38,30 +36,34 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
     [sectionRefs]
   );
 
+  const toggleTheme = () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+
   const menuItems: MenuItemType[] = useMemo(() => {
     const baseItems: Omit<MenuItemType, 'key'>[] = [
       {
         icon: <NightsStayIcon classes={{ root: 'menu-item-icon' }} />,
         tooltip: 'Toggle dark/light theme',
-        action: () => {
-          document.body.classList.toggle('dark-mode');
-          if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-          } else {
-            localStorage.setItem('theme', 'light');
-          }
-        },
+        action: toggleTheme,
       },
     ];
 
-    const sectionItems: Omit<MenuItemType, 'key'>[] = CustomSectionsConfig
+
+    const sectionItems: Omit<MenuItemType, 'key'>[] = SectionConfig
       .filter(section => !section.notInMenu && React.isValidElement(section.headerIcon))
       .map(section => ({
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         icon: React.cloneElement(section.headerIcon, { classes: { root: 'menu-item-icon' } }),
         tooltip: section.name,
-        action: () => scrollToSection(section.name),
+        action: () => scrollToSection(section.key),
       }));
 
     // Add unique keys

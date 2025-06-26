@@ -1,8 +1,9 @@
 import React from 'react';
 import CircleButton from '../../components/CircleButton/CircleButton';
+import CommonConfig from '../../config/CommonConfig';
+import { getIcon, IconKey } from '../../assets/icons/Icons';
 import './Footer.scss';
 
-import { CommonConfig, Icons } from '../../config';
 
 const Footer: React.FC = () => (
   <footer className="footer">
@@ -20,7 +21,7 @@ const Footer: React.FC = () => (
         >
           {socialDetails.icon
             ? socialDetails.icon
-            : Icons[socialDetails.name.toLowerCase() as keyof typeof Icons]}
+            : getIcon(socialDetails.name.toLowerCase() as IconKey)}
         </CircleButton>
       ))}
     </p>

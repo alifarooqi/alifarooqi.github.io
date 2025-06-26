@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { ChevronRight, Description, PlayArrow } from '@mui/icons-material';
 import CircleButton from '../CircleButton/CircleButton';
-import { Icons } from '../../config/icons';
+import { getIcon } from '../../assets/icons/Icons';
 import './FreePalestine.scss';
 
 const FreePalestine: React.FC = () => {
@@ -36,10 +36,10 @@ const FreePalestine: React.FC = () => {
       <div className="free-palestine-content">
         <h1><span>Free</span><br />Palestine</h1>
         <CircleButton link="https://twitter.com/hashtag/FreePalestine" tooltip="#FreePalestine on Twitter">
-          {Icons['twitter']}
+          {getIcon('twitter')}
         </CircleButton>
         <CircleButton link="http://facebook.com/hashtag/FreePalestine" tooltip="#FreePalestine on Facebook">
-          {Icons['facebook']}
+          {getIcon('facebook')}
         </CircleButton>
         <CircleButton link="https://www.google.com/search?q=palestine&amp;tbm=nws" tooltip="Latest news">
           <Description />

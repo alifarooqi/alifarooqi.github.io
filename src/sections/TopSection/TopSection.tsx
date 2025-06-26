@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import CircleButton from '../../components/CircleButton/CircleButton';
 import './TopSection.scss';
 
-import { CommonConfig, Icons } from '../../config';
+import CommonConfig from '../../config/CommonConfig';
+import { getIcon, IconKey } from '../../assets/icons/Icons';
 
 const TopSection: React.FC = () => {
   const pathRef = useRef<SVGPathElement | null>(null);
@@ -58,7 +59,7 @@ const TopSection: React.FC = () => {
           >
             {socialDetails.icon
               ? socialDetails.icon
-              : Icons[socialDetails.name.toLowerCase() as keyof typeof Icons]}
+              : getIcon(socialDetails.name.toLowerCase() as IconKey)}
           </CircleButton>
         ))}
       </div>

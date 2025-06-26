@@ -1,18 +1,21 @@
-import React from "react";
-import ComputerIcon from '@mui/icons-material/Computer';
+import React, { forwardRef } from "react";
 
 import Section from "../../components/Section/Section";
-import { Icons } from "../../config/icons";
-import { CustomSectionsProps } from "../CustomSections/CustomSections";
+import { getIcon } from "../../assets/icons/Icons";
 import CircleButton from "../../components/CircleButton/CircleButton";
+import SectionConfig from "../../config/SectionConfig";
 import Projects from "./Projects";
 import './ProjectSection.scss';
 
-const ProjectsSection: React.FC<CustomSectionsProps> = ({ sectionRefs }) => (
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const ProjectSectionConfig = SectionConfig.find(section => section.key === 'about')!;
+
+
+const ProjectSection = forwardRef<HTMLDivElement>((_, ref) => (
     <Section
-        ref={sectionRefs['Projects']}
-        sectionHeader="Projects"
-        headerIcon={<ComputerIcon />}
+        ref={ref}
+        sectionHeader={ProjectSectionConfig.name}
+        headerIcon={ProjectSectionConfig.headerIcon}
     >
         {
             Projects.map((project, index) => (
@@ -22,7 +25,7 @@ const ProjectsSection: React.FC<CustomSectionsProps> = ({ sectionRefs }) => (
                 </h3>
 
                 <h4 className="project-duration">
-                    {Icons['schedule']}<em>{project.duration}</em>
+                    {getIcon('schedule')}<em>{project.duration}</em>
                 </h4>
 
                 <p className="project-description">{project.description}</p>
@@ -43,8 +46,10 @@ const ProjectsSection: React.FC<CustomSectionsProps> = ({ sectionRefs }) => (
             </div>
             ))
         }
-      </Section>
+    </Section>
+));
 
-);
+ProjectSection.displayName = "ProjectSection";
 
-export default ProjectsSection;
+
+export default ProjectSection;
