@@ -92,3 +92,31 @@
         }
     }
 }
+
+// Background images for sections
+.section-wrapper:nth-child(3n) {
+    background-image: url('../../assets/images/bg02.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.section-wrapper:nth-child(3n + 1) {
+    background-image: url('../../assets/images/bg03.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.section-wrapper:nth-child(3n + 2) {
+    background-image: url('../../assets/images/bg04.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    background-attachment: fixed;
+}
