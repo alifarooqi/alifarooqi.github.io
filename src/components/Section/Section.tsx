@@ -12,8 +12,8 @@ interface SectionProps {
 // Using forwardRef to allow ref forwarding if needed
 const Section = forwardRef<HTMLDivElement, SectionProps>(
   ({ sectionHeader, headerIcon, extraClass = '', children, isReversed = false }, ref) => (
-    <section className="section-wrapper" ref={ref}>
-      <div className={`section ${isReversed ? 'section-reverse' : '' } ${extraClass ? extraClass : ''}`}>
+    <section className={`section-wrapper ${extraClass ? extraClass : ''}`} ref={ref}>
+      <div className={`section ${isReversed ? 'section-reverse' : '' }`}>
         <h2 className="section-header">
           { /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           { /* @ts-ignore */ }

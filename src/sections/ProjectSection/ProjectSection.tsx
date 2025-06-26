@@ -16,6 +16,7 @@ const ProjectSection = forwardRef<HTMLDivElement>((_, ref) => (
         ref={ref}
         sectionHeader={ProjectSectionConfig.name}
         headerIcon={ProjectSectionConfig.headerIcon}
+        extraClass="project-section"
     >
         {
             Projects.map((project, index) => (

@@ -1,17 +1,27 @@
-.project-heading {
-  font-size: 1.4rem;
-  text-decoration: underline;
-}
+.project-section {
+    background-image: url('../../assets/images/bg02.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    background-size: contain;
+    background-attachment: fixed;
 
-.project-duration {
-    color: unset;
-    margin: 0;
-}
 
-.project-description b {
-    color: var(--brand-color);
-}
+    .project-heading {
+        font-size: 1.4rem;
+        text-decoration: underline;
+    }
 
-.project-links-container {
-    text-align: right;
+    .project-duration {
+        color: unset;
+        margin: 0;
+    }
+
+    .project-description b {
+        color: var(--brand-color);
+    }
+
+    .project-links-container {
+        text-align: right;
+    }
 }

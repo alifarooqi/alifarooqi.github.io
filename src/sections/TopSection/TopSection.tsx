@@ -28,7 +28,7 @@ const TopSection: React.FC = () => {
   }, []);
 
   return (
-    <div className="top-section">
+    <section className="top-section">
       <div className="signature">
         <div className="avatar">
           <img className='profile-picture' src='faceshot.png' alt="Profile" />
@@ -63,7 +63,7 @@ const TopSection: React.FC = () => {
           </CircleButton>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
