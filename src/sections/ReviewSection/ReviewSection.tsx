@@ -6,7 +6,7 @@ import Quote from './Quote';
 import './ReviewSection.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const ReviewSectionConfig = SectionConfig.find(section => section.key === 'about')!;
+const ReviewSectionConfig = SectionConfig.find(section => section.key === 'review')!;
 
 
 const ReviewSection = forwardRef<HTMLDivElement>((_, ref) => (

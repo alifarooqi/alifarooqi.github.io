@@ -8,7 +8,7 @@ import Projects from "./Projects";
 import './ProjectSection.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const ProjectSectionConfig = SectionConfig.find(section => section.key === 'about')!;
+const ProjectSectionConfig = SectionConfig.find(section => section.key === 'projects')!;
 
 
 const ProjectSection = forwardRef<HTMLDivElement>((_, ref) => (
