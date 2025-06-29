@@ -43,11 +43,11 @@
 
         .avatar {
             width: 60%;
-            height: auto;
-            background-image: url('../../../public/faceshot.png');
+            aspect-ratio: 356 / 466; // faceshot.webp aspect ratio
+            background-image: url('../../assets/images/faceshot.webp');
             background-repeat: no-repeat;
             background-position: 50%;
-            background-size: cover;
+            background-size: contain; // ensures the whole image is visible
             background-origin: content-box;
             animation: morph 8s ease-in-out 1s infinite;
             background-blend-mode: multiply;
@@ -61,7 +61,6 @@
                 width: 100%;
                 height: auto;
                 visibility: hidden;
-                transition: all 0.3s;
             }
 
         }

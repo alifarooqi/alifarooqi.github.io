@@ -3,6 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 import CircleButton from '../../components/CircleButton/CircleButton';
 import CommonConfig from '../../config/CommonConfig';
 import { getIcon, IconKey } from '../../assets/icons/Icons';
+import ProfileImage from '../../assets/images/faceshot.webp';
 import './TopSection.scss';
 
 const TopSection: React.FC = () => {
@@ -31,7 +32,7 @@ const TopSection: React.FC = () => {
     <section className="top-section">
       <div className="signature">
         <div className="avatar">
-          <img className='profile-picture' src='faceshot.png' alt="Profile" />
+          <img className='profile-picture' src={ProfileImage} alt="Profile" loading='lazy' />
         </div>
         <svg viewBox={CommonConfig.signature?.viewBox}>
           <path
