@@ -1,14 +1,13 @@
-import React, { useEffect, useRef, createRef } from 'react';
+import React, { useEffect, useRef, createRef, lazy, Suspense } from 'react';
 import Menu from './components/Menu/Menu';
 import TopSection from './sections/TopSection/TopSection';
 import Footer from './sections/Footer/Footer';
-import FreePalestine from './components/FreePalestine/FreePalestine';
 
 import { SectionRefs } from './config/SectionConfig';
-import CommonConfig from './config/CommonConfig';
-import ProjectSection from './sections/ProjectSection/ProjectSection';
-import AboutSection from './sections/AboutSection/AboutSection';
-import ReviewSection from './sections/ReviewSection/ReviewSection';
+import { Skeleton } from '@mui/material';
+const ProjectSection = lazy(() => import('./sections/ProjectSection/ProjectSection'));
+const AboutSection = lazy(() => import('./sections/AboutSection/AboutSection'));
+const ReviewSection = lazy(() => import('./sections/ReviewSection/ReviewSection'));
 
 
 const App: React.FC = () => {
@@ -35,12 +34,15 @@ const App: React.FC = () => {
 
   return (
     <>
-      {CommonConfig.addFreePalestine && <FreePalestine />}
       <Menu sectionRefs={sectionRefs.current} />
       <TopSection />
-      <ProjectSection ref={sectionRefs.current.projects} />
-      <AboutSection ref={sectionRefs.current.about} />
-      <ReviewSection ref={sectionRefs.current.review} />
+
+      <Suspense fallback={<Skeleton animation="wave" variant="rectangular" width="100%" height={300} sx={{ bgcolor: 'var(--text-secondary)' }} />}>
+        <ProjectSection ref={sectionRefs.current.projects} />
+        <AboutSection ref={sectionRefs.current.about} />
+        <ReviewSection ref={sectionRefs.current.review} />
+      </Suspense>
+
       <Footer />
     </>
   );
