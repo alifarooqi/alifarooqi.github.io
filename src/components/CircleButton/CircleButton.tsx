@@ -47,6 +47,7 @@ const CircleButton: React.FC<CircleButtonProps> = ({
           onClick={onClick}
           className={combinedClassName}
           style={buttonStyle}
+          aria-label={tooltip}
         >
           {children}
         </button>
