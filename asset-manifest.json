@@ -1,12 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.e8f354fa.css",
-    "main.js": "/static/js/main.b5722b51.js",
-    "static/media/faceshot.png": "/static/media/faceshot.0a344cd96829db039132.png",
-    "static/media/bg01.png": "/static/media/bg01.fff5df00a013733d30fb.png",
-    "static/media/bg04.png": "/static/media/bg04.2b9779d22403afff4885.png",
-    "static/media/bg03.png": "/static/media/bg03.1edc046eb807064d8052.png",
-    "static/media/bg02.png": "/static/media/bg02.c836b98138ff53633fcf.png",
+    "main.css": "/static/css/main.283d747c.css",
+    "main.js": "/static/js/main.0e7919a9.js",
+    "static/css/632.6b813c19.chunk.css": "/static/css/632.6b813c19.chunk.css",
+    "static/js/632.d3ca27f4.chunk.js": "/static/js/632.d3ca27f4.chunk.js",
+    "static/css/411.ec0775a3.chunk.css": "/static/css/411.ec0775a3.chunk.css",
+    "static/js/411.313cdd23.chunk.js": "/static/js/411.313cdd23.chunk.js",
+    "static/css/165.885c1b64.chunk.css": "/static/css/165.885c1b64.chunk.css",
+    "static/js/165.e1014f23.chunk.js": "/static/js/165.e1014f23.chunk.js",
+    "static/media/bg01.webp": "/static/media/bg01.c790ea5aa205d2fbd9dc.webp",
+    "static/media/bg04.webp": "/static/media/bg04.f884a1c797aa22093800.webp",
+    "static/media/bg03.webp": "/static/media/bg03.e92b458220fb6be815af.webp",
+    "static/media/faceshot.webp": "/static/media/faceshot.5a27a1ccfeaf68000c54.webp",
+    "static/media/bg02.webp": "/static/media/bg02.b5d92fae6b24c8bad5d6.webp",
     "static/media/postgresql.svg": "/static/media/postgresql.4c913122118616c9b3ebcb6f06807af5.svg",
     "static/media/mongodb-plain-wordmark.svg": "/static/media/mongodb-plain-wordmark.8b657991311ca1344b2d265b351178fc.svg",
     "static/media/mysql-plain-wordmark.svg": "/static/media/mysql-plain-wordmark.f7e9c94f90a7b676378647bdd86e7289.svg",
@@ -14,8 +20,8 @@
     "static/media/scala.svg": "/static/media/scala.9cd0ef4b4a80ca810d310b5ad17918a6.svg",
     "static/media/kubernetes.svg": "/static/media/kubernetes.350071464e37f3db89b262dac14b8170.svg",
     "static/media/nodejs-plain-wordmark.svg": "/static/media/nodejs-plain-wordmark.0900741d947933168c7dd59f759ea2e4.svg",
-    "static/media/graphql.svg": "/static/media/graphql.de7bf1c4a7e7f723bc29c42c2d82e035.svg",
     "index.html": "/index.html",
+    "static/media/graphql.svg": "/static/media/graphql.de7bf1c4a7e7f723bc29c42c2d82e035.svg",
     "static/media/java-plain-wordmark.svg": "/static/media/java-plain-wordmark.89f3624b2db1db5a2b1ca0d828fe5e91.svg",
     "static/media/angularjs-plain-wordmark.svg": "/static/media/angularjs-plain-wordmark.2a4dd1c66b601e29c4ae7ca466472c8d.svg",
     "static/media/php-plain.svg": "/static/media/php-plain.ce736a2b646197d247377a3faa7bec6e.svg",
@@ -27,11 +33,17 @@
     "static/media/facebook.svg": "/static/media/facebook.ec8e7d7557f901bcbc326a1b23891004.svg",
     "static/media/terraform.svg": "/static/media/terraform.f278bcf7bb1d6e30166f338128e1d3b4.svg",
     "static/media/kotlin.svg": "/static/media/kotlin.acb9829c042014440f72b5c8d7fcb027.svg",
-    "main.e8f354fa.css.map": "/static/css/main.e8f354fa.css.map",
-    "main.b5722b51.js.map": "/static/js/main.b5722b51.js.map"
+    "main.283d747c.css.map": "/static/css/main.283d747c.css.map",
+    "main.0e7919a9.js.map": "/static/js/main.0e7919a9.js.map",
+    "632.6b813c19.chunk.css.map": "/static/css/632.6b813c19.chunk.css.map",
+    "632.d3ca27f4.chunk.js.map": "/static/js/632.d3ca27f4.chunk.js.map",
+    "411.ec0775a3.chunk.css.map": "/static/css/411.ec0775a3.chunk.css.map",
+    "411.313cdd23.chunk.js.map": "/static/js/411.313cdd23.chunk.js.map",
+    "165.885c1b64.chunk.css.map": "/static/css/165.885c1b64.chunk.css.map",
+    "165.e1014f23.chunk.js.map": "/static/js/165.e1014f23.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8f354fa.css",
-    "static/js/main.b5722b51.js"
+    "static/css/main.283d747c.css",
+    "static/js/main.0e7919a9.js"
   ]
 }
