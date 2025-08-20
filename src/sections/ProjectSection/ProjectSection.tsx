@@ -6,6 +6,8 @@ import CircleButton from "../../components/CircleButton/CircleButton";
 import SectionConfig from "../../config/SectionConfig";
 import Projects from "./Projects";
 import './ProjectSection.scss';
+import MotionDiv from "../../animaiton/MotionDiv";
+import { slideInRight } from "../../animaiton/presets";
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const ProjectSectionConfig = SectionConfig.find(section => section.key === 'projects')!;
@@ -20,7 +22,7 @@ const ProjectSection = forwardRef<HTMLDivElement>((_, ref) => (
     >
         {
             Projects.map((project, index) => (
-            <div key={'project-' + index}>
+            <MotionDiv variants={slideInRight} key={'project-' + index}>
                 <h3 className="project-heading">
                     {project.icon} {project.name}
                 </h3>
@@ -44,7 +46,7 @@ const ProjectSection = forwardRef<HTMLDivElement>((_, ref) => (
                         </CircleButton>
                     ))}
                 </div>
-            </div>
+            </MotionDiv>
             ))
         }
     </Section>

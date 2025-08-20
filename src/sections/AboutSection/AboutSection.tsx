@@ -3,6 +3,8 @@ import Section from '../../components/Section/Section';
 import { getIcon } from '../../assets/icons/Icons';
 import SectionConfig from '../../config/SectionConfig';
 import './AboutSection.scss';
+import MotionDiv from '../../animaiton/MotionDiv';
+import { slideInLeft } from '../../animaiton/presets';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const AboutSectionConfig = SectionConfig.find(section => section.key === 'about')!;
@@ -24,7 +26,7 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => (
       </p>
 
       <h4>{getIcon('code')} Programming</h4>
-      <p className="programming-icons">
+      <MotionDiv variants={slideInLeft} className="programming-icons">
         {getIcon('java')}
         {getIcon('cpp')}
         {getIcon('typescript')}
@@ -32,16 +34,16 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => (
         {getIcon('kotlin')}          
         {getIcon('nodejs')}
         {getIcon('react')}
-      </p>
+      </MotionDiv>
 
       <h4>{getIcon('tools')} Tools</h4>
-      <p className="programming-icons">
+      <MotionDiv variants={slideInLeft}  className="programming-icons">
         {getIcon('graphql')}
         {getIcon('postgresql')}
         {getIcon('terraform')}
         {getIcon('mongodb')}
         {getIcon('kubernetes')}
-      </p>
+      </MotionDiv>
     </Section>
 ));
 
