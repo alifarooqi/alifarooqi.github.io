@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.283d747c.css",
-    "main.js": "/static/js/main.44351da3.js",
+    "main.js": "/static/js/main.d2e8ba03.js",
     "static/css/632.5a8ef7c3.chunk.css": "/static/css/632.5a8ef7c3.chunk.css",
     "static/js/632.93fe1d7d.chunk.js": "/static/js/632.93fe1d7d.chunk.js",
     "static/css/411.7d900504.chunk.css": "/static/css/411.7d900504.chunk.css",
@@ -35,7 +35,7 @@
     "static/media/terraform.svg": "/static/media/terraform.f278bcf7bb1d6e30166f338128e1d3b4.svg",
     "static/media/kotlin.svg": "/static/media/kotlin.acb9829c042014440f72b5c8d7fcb027.svg",
     "main.283d747c.css.map": "/static/css/main.283d747c.css.map",
-    "main.44351da3.js.map": "/static/js/main.44351da3.js.map",
+    "main.d2e8ba03.js.map": "/static/js/main.d2e8ba03.js.map",
     "632.5a8ef7c3.chunk.css.map": "/static/css/632.5a8ef7c3.chunk.css.map",
     "632.93fe1d7d.chunk.js.map": "/static/js/632.93fe1d7d.chunk.js.map",
     "411.7d900504.chunk.css.map": "/static/css/411.7d900504.chunk.css.map",
@@ -46,6 +46,6 @@
   },
   "entrypoints": [
     "static/css/main.283d747c.css",
-    "static/js/main.44351da3.js"
+    "static/js/main.d2e8ba03.js"
   ]
 }
