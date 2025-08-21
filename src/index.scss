@@ -4,17 +4,18 @@
 // Variables for light theme
 :root {
     --bg-primary: #fafafa;
-    --text-primary: #000000;
+    --text-primary: #0f131a;
     --text-secondary: #e0e0e0;
-    --brand-color: #f5b544;
-    --brand-color-rgb: 245, 179, 66;
+    --brand-color: #3c83f6;
+    --brand-color-light: #A8D5E3;
+    --brand-color-rgb: 60, 131, 246;
     font-size: 16px;
 }
 
 // Variables for dark theme
 .dark-mode {
-    --bg-primary: #2f2f2f;
-    --text-primary: #ffffff;
+    --bg-primary: #0f131a;
+    --text-primary: #fafafa;
     --text-secondary: #e0e0e0;
 }
 

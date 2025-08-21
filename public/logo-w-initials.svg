@@ -7,9 +7,9 @@
 </g>
 <defs>
     <linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fff2b2"/>
-      <stop offset="50%" stop-color="#f5b544"/>
-      <stop offset="100%" stop-color="#a86c00"/>
+      <stop offset="0%" stop-color="#A8D5E3"/>
+      <stop offset="50%" stop-color="#72ACED"/>
+      <stop offset="100%" stop-color="#3C83F6"/>
     </linearGradient>
 <clipPath id="clip0_1_7">
 <rect width="693" height="365" fill="white" transform="translate(0.600006 0.190994)"/>
