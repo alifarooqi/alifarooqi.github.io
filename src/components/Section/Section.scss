@@ -1,16 +1,16 @@
 .section-wrapper {
     width: 100%;
 
+    .section-active {
+        box-shadow: 0 0 40px var(--brand-color-light);
+        transform: translateY(-5px) !important;
+    }
+    
     .section {
         padding: 5rem;
         display: flex;
         border-radius: 8px;;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        
-        &:hover {
-            box-shadow: 0 0 40px var(--brand-color);
-            transform: translateY(-5px) !important;
-        }
 
 
         .section-header {

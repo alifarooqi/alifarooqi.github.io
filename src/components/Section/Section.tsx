@@ -23,6 +23,7 @@ const staggerContainer: Variants = {
 const Section = forwardRef<HTMLDivElement, SectionProps>(
   ({ sectionHeader, headerIcon, extraClass = '', children, isReversed = false }, ref) => {
     const internalRef = useRef<HTMLDivElement>(null);
+    const innerDivRef = useRef<HTMLDivElement>(null);
 
     // Combine forwarded ref and internal ref
     useEffect(() => {
@@ -36,6 +37,20 @@ const Section = forwardRef<HTMLDivElement, SectionProps>(
 
     
     const isInView = useInView(internalRef, { amount: 0.2, once: true })
+    const isCurrentlyInView = useInView(internalRef, { amount: 0.5 })
+
+    useEffect(() => {
+      if (!innerDivRef.current) return;
+      const ACTIVE_CLASS = 'section-active';
+      const isActive = innerDivRef.current.classList.contains(ACTIVE_CLASS);
+      
+      if (!isActive && isCurrentlyInView) {
+        document.querySelectorAll(`.${ACTIVE_CLASS}`).forEach(e => e.classList.remove(ACTIVE_CLASS));
+        innerDivRef.current?.classList.add(ACTIVE_CLASS);
+      } else if (isActive && !isCurrentlyInView) {
+        innerDivRef.current?.classList.remove(ACTIVE_CLASS);
+      }
+    }, [isCurrentlyInView]);
 
     return (
     <motion.section 
@@ -45,7 +60,7 @@ const Section = forwardRef<HTMLDivElement, SectionProps>(
       animate={isInView ? 'visible' : 'hidden'}
       variants={staggerContainer}
     >
-      <div className={`section ${isReversed ? 'section-reverse' : '' }`}>
+      <div className={`section${isReversed ? ' section-reverse' : '' }`} ref={innerDivRef}>
         <h2 className="section-header">
           { /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           { /* @ts-ignore */ }
