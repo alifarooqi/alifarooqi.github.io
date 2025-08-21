@@ -2,9 +2,9 @@
   <path d="M123.947 44.0071C123.947 45.8596 129.44 63.538 140.427 97.0421C156.907 147.298 163.409 167.217 176.407 207.049C189.405 246.881 206.881 299.532 228.862 365.004H248.829L125.801 0H122.089L0 365.004H19.0314L123.947 44.0071ZM115.592 261.242H98.882L126.732 364.996H143.446L115.592 261.242ZM321.5 216L321 52.5H336.5V40.5H309.176V202L321.5 216ZM433.123 12.9692V0.00432162H309.176V12.9692H433.123ZM332 204H367V216H332V204ZM321.215 241V361.035H309.215V228L321.215 241Z" fill="url(#a)"/>
   <defs>
     <linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fff2b2"/>
-      <stop offset="50%" stop-color="#f5b544"/>
-      <stop offset="100%" stop-color="#a86c00"/>
+      <stop offset="0%" stop-color="#3c83f6"/>
+      <stop offset="50%" stop-color="#72ACED"/>
+      <stop offset="100%" stop-color="#A8D5E3"/>
     </linearGradient>
     <filter id="b" x="-50%" y="-50%" width="200%" height="200%">
       <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="1" result="noise"/>
