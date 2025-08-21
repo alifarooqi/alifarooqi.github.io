@@ -25,9 +25,12 @@ const Menu: React.FC<MenuProps> = ({ sectionRefs }) => {
   const scrollToSection = useCallback(
     (sectionName: Sections) => {
       const ref = sectionRefs[sectionName];
+      const offset = window.innerHeight > ref.current?.offsetHeight 
+        ? (window.innerHeight - ref.current?.offsetHeight)/2 
+        : 0;
       if (ref && ref.current) {
         window.scrollTo({
-          top: ref.current.offsetTop - 50,
+          top: ref.current.offsetTop - offset,
           left: 0,
           behavior: 'smooth',
         });
